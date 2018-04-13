@@ -1,0 +1,1 @@
+(Php-code-conventions)[github.com/Infinitiweb/code-conventions/blob/master/PHP.md]
