@@ -285,13 +285,13 @@ private function _convertUserToApiObject(Entity\Mapper\User $user): Entity\Api\U
 
 ## **Работа с файлами**
 
-### 📖 Названия файлов пишутся стиле UpperCamelCase, названия папок пишутся в соответствии со стилем названия папок в проекте
+### 📖 Названия файлов пишутся стиле UpperCamelCase, названия папок пишутся в соответствии со стилем названия папок в проекте слитно без разделителей
 
 ```
 \doctrine\common\IsolatedClassLoader => /path/to/project/lib/vendor/doctrine/common/IsolatedClassLoader.php
 \symfony\core\Request => /path/to/project/lib/vendor/symfony/core/Request.php
 \zend\acl => /path/to/project/lib/vendor/zend/Acl.php
-\zend\mail\message => /path/to/project/lib/vendor/zend/mail/Message.php
+\zend\commonmail\message => /path/to/project/lib/vendor/zend/commonmail/Message.php
 ```
 
 ### 📖 Файлы классов должны быть расположены в директориях в соответствии со стандартом PSR-0
