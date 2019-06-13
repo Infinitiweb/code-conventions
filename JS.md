@@ -176,5 +176,64 @@ let item = new Object();
 let item = {};
 ```
 
+Используйте сокращённую запись метода объекта. eslint: [object-shorthand](https://eslint.org/docs/rules/object-shorthand.html)
+```js
+// плохо
+const atom = {
+  value: 1,
+
+  addValue: function (value) {
+    return atom.value + value;
+  },
+};
+
+// хорошо
+const atom = {
+  value: 1,
+
+  addValue(value) {
+    return atom.value + value;
+  },
+};
+```
+Только недопустимые идентификаторы помещаются в кавычки. eslint: [quote-props](https://eslint.org/docs/rules/quote-props.html)
+```js
+// плохо
+const bad = {
+  'foo': 3,
+  'bar': 4,
+  'data-blah': 5,
+};
+
+// хорошо
+const good = {
+  foo: 3,
+  bar: 4,
+  'data-blah': 5,
+};
+```
+
+* Используйте оператор расширения `...` вместо Object.assign для поверхностного копирования объектов. 
+* Используйте синтаксис оставшихся свойств, чтобы получить новый объект с некоторыми опущенными свойствами.
+
+```js
+// очень плохо
+const original = { a: 1, b: 2 };
+// эта переменная изменяет      `original` ಠ_ಠ
+const copy = Object.assign(original, { c: 3 }); 
+// если сделать так
+delete copy.a; 
+
+// плохо (но можно использовать)
+const original = { a: 1, b: 2 };
+const copy = Object.assign({}, original, { c: 3 }); // copy => { a: 1, b: 2, c: 3 }
+
+// хорошо
+const original = { a: 1, b: 2 };
+const copy = { ...original, c: 3 }; // copy => { a: 1, b: 2, c: 3 }
+
+const { a, ...noA } = copy; // noA => { b: 2, c: 3 }
+```
+
 **[[⬆]](#Оглавление)**
 
